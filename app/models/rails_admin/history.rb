@@ -21,7 +21,7 @@ module RailsAdmin
         results = History.find_by_sql(["select count(*) as record_count, year, month from rails_admin_histories where month IN (?) and year = ? group by year, month",
                                       ((mstart + 1)..12).to_a, ystart])
         
-        results_two = History.find_by_sql(["select count(*) as number, year, month from rails_admin_histories where month IN (?) and year = ? group by year, month",(1..mstop).to_a, ystop])
+        results_two = History.find_by_sql(["select count(*) as record_count, year, month from rails_admin_histories where month IN (?) and year = ? group by year, month",(1..mstop).to_a, ystop])
 
         results.concat(results_two)
       else
